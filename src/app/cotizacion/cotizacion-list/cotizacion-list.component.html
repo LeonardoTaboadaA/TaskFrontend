@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-12">
+    <h2>Cotizaciones</h2>
+  </div>
+  <div class="col-lg-6 col-md-12 col-12 text-end">
+    <button routerLink="/cotizaciones/crear" mat-stroked-button style="background-color: #ff6900; color: white;" class="action-button">Nueva cotización</button>
+  </div>
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th>Cliente</th>
+            <th>Ruc</th>
+            <th>Total Equipos</th>
+            <th>Estado</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of pagedItems">
+            <td>{{ item.cliente }}</td>
+            <td>{{ item.ruc }}</td>
+            <td>{{ item.totalEquipos }}</td>
+            <td>{{ item.estado }}</td>
+            <td>
+              <a routerLink="/cotizaciones/cotizar/{{item.id}}" mat-raised-button color="primary" style="width: 100%;">Cotizar</a>
+            </td>
+            <td>
+              <a routerLink="/cotizaciones/aprobar/{{item.id}}" mat-raised-button color="warn" style="width: 100%;">Aprobar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="prevPage()"><label>Anterior</label></a>
+        </li>
+        <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+          <a class="page-link" (click)="goToPage(page)"><label>{{ page }}</label></a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a class="page-link" (click)="nextPage()"><label>Siguiente</label></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</div>

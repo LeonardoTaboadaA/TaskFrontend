@@ -1,0 +1,17 @@
+.action-button{
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .action-button {
+    width: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .pagination{
+    display: inline;
+    text-align: center;
+  }
+}

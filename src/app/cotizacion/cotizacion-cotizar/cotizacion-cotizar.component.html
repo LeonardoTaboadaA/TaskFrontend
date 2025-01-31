@@ -1,0 +1,65 @@
+<form [formGroup]="formCotizar">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h1>Cotización N° {{idCotizacion}}</h1>
+      </div>
+      <div class="col-lg-6 col-md-12 col-12">
+        <input class="form-control" type="text" placeholder="Metro" aria-label="Disabled input example" disabled>
+      </div>
+      <div class="col-lg-6 col-md-12 col-12">
+        <input class="form-control" type="text" placeholder="29/01/2025" aria-label="Disabled input example" disabled>
+      </div>
+
+      <div class="col-12" style="margin-bottom: 15px;">
+        <mat-card style="background-color: slategray;">
+          <mat-card-content>
+            <mat-card>
+              <mat-card-content style="padding-top: 36px;">
+                <div class="row">
+                  <div class="col-lg-6 col-md-12 col-12">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12 col-12">
+                        <input class="form-control" type="text" placeholder="Aire acondicionado" aria-label="Disabled input example" disabled>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-12">
+                        <input class="form-control" type="text" placeholder="2" aria-label="Disabled input example" disabled>
+                      </div>
+                      <div class="col-12">
+                        <img src="https://www.shutterstock.com/image-photo/dirty-dust-mold-air-conditioner-600nw-2452928391.jpg" style="margin-right: 10px; margin-bottom: 15px;" width="100" height="100">
+                        <img src="https://media.a24.com/p/5cfefddbe4d951ae1af56e164a9430c3/adjuntos/296/imagenes/009/292/0009292051/1200x675/smart/imagepng.png" style="margin-bottom: 15px;" width="100" height="100">
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div class="col-lg-6 col-md-12 col-12">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12 col-12">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Cambio de cables" rows="3" disabled></textarea>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-12">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Precio</mat-label>
+                          <input matInput formControlName="precio" autocomplete="off" type="text">
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" class="action-button" [disabled]="formCotizar.invalid">Cotizar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-12">
+        <a routerLink="/cotizaciones" mat-stroked-button style="background-color: white; color: #3f51b5;" class="action-button">Atrás</a>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+

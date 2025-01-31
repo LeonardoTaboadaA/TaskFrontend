@@ -1,0 +1,187 @@
+/* Estilos generales */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #333;
+  width: 250px; /* Ancho fijo para el navbar */
+  height: 100vh; /* Altura completa de la pantalla */
+  position: fixed; /* Fijar el navbar en la pantalla */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.hamburger {
+  display: none; /* Oculto por defecto en pantallas grandes */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  margin: 15px 0;
+}
+
+.nav-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Contenido principal */
+.content {
+  flex: 1;
+  margin-left: 250px; /* Dejar espacio para el navbar */
+  padding: 20px;
+
+}
+
+
+/* Estilos para pantallas pequeñas (responsive) */
+@media (max-width: 767px) {
+  header {
+    background-color: #333;
+    width: auto; /* Ancho fijo para el navbar */
+    height: 100vh; /* Altura completa de la pantalla */
+    position: fixed; /* Fijar el navbar en la pantalla */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+  }
+  .hamburger {
+    display: flex; /* Mostrar el botón hamburguesa en pantallas pequeñas */
+    z-index: 1001;
+  }
+
+  .nav-menu {
+    display: inline; /* Ocultar el menú por defecto en pantallas pequeñas */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #333;
+    flex-direction: column;
+    padding-top: 60px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    display: flex; /* Mostrar el menú cuando está activo */
+    transform: translateX(0);
+    padding-left: 20px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+  }
+
+  .nav-menu ul li {
+    margin: 15px 0;
+  }
+
+  .content {
+    margin-left: 70px; /* Asegurar que el contenido no se solape con el menú */
+    transition: 0.3s ease-in-out;
+  }
+
+  .content.active{
+    margin-left: 250px;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+@media (max-width: 575px) {
+  header {
+    background-color: #333;
+    width: 100%; /* Ancho fijo para el navbar */
+    height: auto; /* Altura completa de la pantalla */
+    position: fixed; /* Fijar el navbar en la pantalla */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+  }
+  .hamburger {
+    display: flex; /* Mostrar el botón hamburguesa en pantallas pequeñas */
+    z-index: 1001;
+  }
+
+  .nav-menu {
+    display: inline; /* Ocultar el menú por defecto en pantallas pequeñas */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
+    padding-top: 60px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    display: flex; /* Mostrar el menú cuando está activo */
+    transform: translateX(0);
+    padding-left: 20px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+  }
+
+  .nav-menu ul li {
+    margin: 15px 0;
+  }
+
+  .content {
+    margin-top: 65px; /* Asegurar que el contenido no se solape con el menú */
+    margin-left: 0;
+    transition: 0.3s ease-in-out;
+  }
+
+  .content.active{
+    margin-left: 0;
+    transition: 0.3s ease-in-out;
+  }
+}

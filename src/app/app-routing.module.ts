@@ -1,7 +1,53 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsuarioCreateComponent } from './usuarios/usuario-create/usuario-create.component';
+import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.component';
+import { UsuarioEditComponent } from './usuarios/usuario-edit/usuario-edit.component';
+import { CotizacionListComponent } from './cotizacion/cotizacion-list/cotizacion-list.component';
+import { CotizacionCreateComponent } from './cotizacion/cotizacion-create/cotizacion-create.component';
+import { CotizacionCotizarComponent } from './cotizacion/cotizacion-cotizar/cotizacion-cotizar.component';
+import { CotizacionAprobarComponent } from './cotizacion/cotizacion-aprobar/cotizacion-aprobar.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'cotizaciones',
+    component:CotizacionListComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'cotizaciones/crear',
+    component:CotizacionCreateComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'cotizaciones/cotizar/:idCotizacion',
+    component:CotizacionCotizarComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'cotizaciones/aprobar/:idCotizacion',
+    component:CotizacionAprobarComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'usuarios',
+    component:UsuarioListComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'usuarios/crear',
+    component:UsuarioCreateComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'usuarios/editar/:idUsuario',
+    component:UsuarioEditComponent,
+    pathMatch:'full'
+  },
+  {
+    path: '**', redirectTo: ''
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

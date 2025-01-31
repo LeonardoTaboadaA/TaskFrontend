@@ -1,0 +1,23 @@
+<div class="app-container">
+  <header>
+    <div class="menu-container">
+      <button class="hamburger" (click)="toggleMenu()">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav-menu" [class.active]="isMenuOpen">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="/cotizaciones">Cotizaciones</a></li>
+          <li><a href="/usuarios">Usuarios</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content" [class.active]="isMenuOpen">
+    <router-outlet></router-outlet>
+  </main>
+</div>

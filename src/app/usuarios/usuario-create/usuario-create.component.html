@@ -1,0 +1,122 @@
+<form [formGroup]="formCrearUsuario">
+  <mat-card>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-12">
+          <h1>Registro Usuario</h1>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Dni</mat-label>
+            <input matInput formControlName="dni" autocomplete="off" type="text" placeholder="Ingrese su celular" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+            <mat-error *ngIf="formCrearUsuario.get('dni')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('dni')?.hasError('pattern')">El Dni debe tener exactamente 8 dígitos</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombres</mat-label>
+            <input matInput formControlName="nombre" autocomplete="off" type="text" placeholder="Ingrese sus nombres" (keypress)="validarTexto($event)">
+            <mat-error *ngIf="formCrearUsuario.get('nombre')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('nombre')?.hasError('pattern')">Solo se permiten letras y espacios</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('nombre')?.hasError('minlength')">El nombre debe tener al menos 2 caracteres</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('nombre')?.hasError('maxlength')">El nombre debe tener como máximo 50 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Apellido Paterno</mat-label>
+            <input matInput formControlName="apellidoPaterno" autocomplete="off" type="text" placeholder="Ingrese sus nombres" (keypress)="validarTexto($event)">
+            <mat-error *ngIf="formCrearUsuario.get('apellidoPaterno')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('apellidoPaterno')?.hasError('pattern')">Solo se permiten letras y espacios</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('apellidoPaterno')?.hasError('minlength')">El apellido paterno debe tener al menos 2 caracteres</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('apellidoPaterno')?.hasError('maxlength')">El apellido paterno debe tener como máximo 50 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Apellido Materno</mat-label>
+            <input matInput formControlName="apellidoMaterno" autocomplete="off" type="text" placeholder="Ingrese sus nombres" (keypress)="validarTexto($event)">
+            <mat-error *ngIf="formCrearUsuario.get('apellidoMaterno')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('apellidoMaterno')?.hasError('pattern')">Solo se permiten letras y espacios</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('apellidoMaterno')?.hasError('minlength')">El apellido materno debe tener al menos 2 caracteres</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('apellidoMaterno')?.hasError('maxlength')">El apellido materno debe tener como máximo 50 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput formControlName="email" autocomplete="off" type="email" placeholder="Ingrese su correo electrónico">
+            <mat-error *ngIf="formCrearUsuario.get('email')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('email')?.hasError('email')">Correo electrónico no válido</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Celular</mat-label>
+            <input matInput formControlName="numeroCelular" autocomplete="off" type="tel" placeholder="Ingrese su celular" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+            <mat-error *ngIf="formCrearUsuario.get('numeroCelular')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('numeroCelular')?.hasError('pattern')">El número de celular debe tener exactamente 9 dígitos</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="direccion" autocomplete="off" type="text" placeholder="Ingrese sus nombres" (keypress)="validarTexto($event)">
+            <mat-error *ngIf="formCrearUsuario.get('direccion')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('direccion')?.hasError('maxlength')">La dirección debe tener como máximo 100 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Cargo</mat-label>
+            <mat-select formControlName="cargo">
+              <mat-option *ngFor="let cargo of listaCargos" [value]="cargo">
+                {{ cargo }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formCrearUsuario.get('cargo')?.hasError('required')">
+              Este campo es requerido
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Usuario</mat-label>
+            <input matInput formControlName="username" autocomplete="off" type="text" placeholder="Ingrese su usuario">
+            <mat-error *ngIf="formCrearUsuario.get('username')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('username')?.hasError('minlength')">El usuario debe tener al menos 3 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password" autocomplete="off" type="password" placeholder="Ingrese su contraseña">
+            <mat-error *ngIf="formCrearUsuario.get('password')?.hasError('required')">Este campo es requerido</mat-error>
+            <mat-error *ngIf="formCrearUsuario.get('password')?.hasError('minlength')">La contraseña debe tener al menos 8 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Rol</mat-label>
+            <mat-select formControlName="rol">
+              <mat-option *ngFor="let rol of listaRoles" [value]="rol">
+                {{ rol }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formCrearUsuario.get('rol')?.hasError('required')">
+              Este campo es requerido
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <button (click)="guardarUsuario()" mat-stroked-button style="background-color: #ff6900; color: white; margin-right: 15px;" class="action-button">Guardar</button>
+          <a routerLink="/usuarios" mat-stroked-button style="background-color: white; color: #ff6900;" class="action-button">Cancelar</a>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</form>
+
+
