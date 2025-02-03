@@ -6,7 +6,7 @@
 }
 
 header {
-  background-color: #333;
+  background-color: #020B53;
   width: 250px; /* Ancho fijo para el navbar */
   height: 100vh; /* Altura completa de la pantalla */
   position: fixed; /* Fijar el navbar en la pantalla */
@@ -41,26 +41,66 @@ header {
   background-color: #fff;
 }
 
+.logo-pequeño{
+  display: none;
+  width: 100px;
+  height: 25px;
+}
+
+.icono-user{
+  display: none;
+  width: 25px;
+  height: 25px;
+  color: white;
+}
+
 .nav-menu {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
+.container-fluid{
+  padding: 0;
+}
+
 .nav-menu ul {
+  width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-menu ul li {
-  margin: 15px 0;
+  width: 100%;
 }
 
 .nav-menu ul li a {
   color: #fff;
   text-decoration: none;
+  padding: 15px;
   font-size: 16px;
+  width: 100%;
+}
+
+/* Cambiar el color de fondo al hacer hover */
+.nav-link:hover {
+  border-radius: 10px;
+  background-color: #2A39A8; /* Color de fondo deseado */
+  transition: background-color 0.5s ease; /* Transición suave */
+}
+
+.nav-link.active {
+  background-color: #36D699;
+  border-radius: 10px;
+}
+
+
+.menu-image {
+  width: 100%; /* Ajusta el ancho de la imagen */
+  align-self: center; /* Centra la imagen horizontalmente */
+  display: block; /* Asegura que la imagen se muestre como bloque */
 }
 
 /* Contenido principal */
@@ -75,7 +115,6 @@ header {
 /* Estilos para pantallas pequeñas (responsive) */
 @media (max-width: 767px) {
   header {
-    background-color: #333;
     width: auto; /* Ancho fijo para el navbar */
     height: 100vh; /* Altura completa de la pantalla */
     position: fixed; /* Fijar el navbar en la pantalla */
@@ -89,6 +128,12 @@ header {
     z-index: 1001;
   }
 
+  .menu-image {
+    width: 100%; /* Ajusta el ancho de la imagen */
+    align-self: center; /* Centra la imagen horizontalmente */
+    display: block; /* Asegura que la imagen se muestre como bloque */
+  }
+
   .nav-menu {
     display: inline; /* Ocultar el menú por defecto en pantallas pequeñas */
     position: fixed;
@@ -96,7 +141,7 @@ header {
     left: 0;
     height: 100vh;
     width: 250px;
-    background-color: #333;
+    background-color: #020B53;
     flex-direction: column;
     padding-top: 60px;
     transform: translateX(-100%);
@@ -107,15 +152,14 @@ header {
   .nav-menu.active {
     display: flex; /* Mostrar el menú cuando está activo */
     transform: translateX(0);
-    padding-left: 20px;
+  }
+
+  .container-fluid{
+    padding: 0 15px;
   }
 
   .nav-menu ul {
     flex-direction: column;
-  }
-
-  .nav-menu ul li {
-    margin: 15px 0;
   }
 
   .content {
@@ -130,8 +174,14 @@ header {
 }
 
 @media (max-width: 575px) {
+  .menu-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
   header {
-    background-color: #333;
     width: 100%; /* Ancho fijo para el navbar */
     height: auto; /* Altura completa de la pantalla */
     position: fixed; /* Fijar el navbar en la pantalla */
@@ -140,9 +190,18 @@ header {
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
   }
+
   .hamburger {
     display: flex; /* Mostrar el botón hamburguesa en pantallas pequeñas */
     z-index: 1001;
+  }
+
+  .logo-pequeño{
+    display: flex;
+  }
+
+  .icono-user{
+    display: flex;
   }
 
   .nav-menu {
@@ -152,7 +211,7 @@ header {
     left: 0;
     height: 100vh;
     width: 100%;
-    background-color: #333;
+    background-color: #020B53;
     flex-direction: column;
     padding-top: 60px;
     transform: translateX(-100%);
@@ -163,15 +222,14 @@ header {
   .nav-menu.active {
     display: flex; /* Mostrar el menú cuando está activo */
     transform: translateX(0);
-    padding-left: 20px;
   }
 
   .nav-menu ul {
     flex-direction: column;
   }
 
-  .nav-menu ul li {
-    margin: 15px 0;
+  .menu-image{
+    display: none;
   }
 
   .content {

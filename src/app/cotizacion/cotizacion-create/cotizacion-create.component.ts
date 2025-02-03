@@ -70,7 +70,7 @@ export class CotizacionCreateComponent implements OnInit{
   nuevoCliente(){
     this.dialog.open(ClienteCreateComponent, {
       disableClose: true,
-      width: "300px"
+      width: "auto"
     })
   }
 

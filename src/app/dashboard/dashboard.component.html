@@ -6,13 +6,37 @@
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
+
+      <a href="/">
+        <img src="assets/images/logo_evolux_cmms.png" alt="Imagen" class="logo-pequeño">
+      </a>
+
+      <a href="/usuarios">
+        <mat-icon fontIcon="account_circle" class="icono-user"></mat-icon>
+      </a>
+
       <nav class="nav-menu" [class.active]="isMenuOpen">
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="/cotizaciones">Cotizaciones</a></li>
-          <li><a href="/usuarios">Usuarios</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
+        <div class="container-fluid">
+          <ul>
+            <li>
+              <a href="/">
+                <img src="assets/images/logo_evolux_cmms.png" alt="Imagen" class="menu-image">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/" [ngClass]="{'active': currentRoute === '/'}">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cotizaciones" [ngClass]="{'active': currentRoute.startsWith('/cotizaciones')}">Cotizaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/usuarios" [ngClass]="{'active': currentRoute.startsWith('/usuarios')}">Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contacto" [ngClass]="{'active': currentRoute.startsWith('/contacto')}">Contacto</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   </header>
