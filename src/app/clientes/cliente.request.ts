@@ -4,4 +4,5 @@ export interface ClienteRequest {
   numeroCelular: string;
   email: string;
   direccion: string;
+  idEquipos: number[];
 }

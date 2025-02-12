@@ -3,7 +3,36 @@
   margin-bottom: 15px;
 }
 
+.cabecera-azul tr th{
+  background-color: #2A39A8 !important;
+  color: white;
+}
+
+.btnCotizar{
+  width: 100%;
+  background-color: #2A39A8 !important;
+  color: white !important;
+}
+
+.btnAprobar{
+  width: 100%;
+  background-color: #36D699 !important;
+  color: white !important;
+}
+
 @media screen and (min-width: 992px) {
+  .action-button {
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .action-button {
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 576px) {
   .action-button {
     width: auto;
   }

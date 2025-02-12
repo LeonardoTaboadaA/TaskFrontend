@@ -25,6 +25,11 @@ import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-er
 import { ClienteFormComponent } from './clientes/cliente-form/cliente-form.component';
 import { CotizacionCotizarComponent } from './cotizacion/cotizacion-cotizar/cotizacion-cotizar.component';
 import { CotizacionAprobarComponent } from './cotizacion/cotizacion-aprobar/cotizacion-aprobar.component';
+import { ClienteListComponent } from './clientes/cliente-list/cliente-list.component';
+import { EquipoCreateComponent } from './equipos/equipo-create/equipo-create.component';
+import { EquipoListComponent } from './equipos/equipo-list/equipo-list.component';
+import { EquipoFormComponent } from './equipos/equipo-form/equipo-form.component';
+import { UsuarioFormComponent } from './usuarios/usuario-form/usuario-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,12 @@ import { CotizacionAprobarComponent } from './cotizacion/cotizacion-aprobar/coti
     MostrarErroresComponent,
     ClienteFormComponent,
     CotizacionCotizarComponent,
-    CotizacionAprobarComponent
+    CotizacionAprobarComponent,
+    ClienteListComponent,
+    EquipoCreateComponent,
+    EquipoListComponent,
+    EquipoFormComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,

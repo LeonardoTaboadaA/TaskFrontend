@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col-lg-6 col-md-12 col-12">
+  <div class="col-lg-6 col-md-6 col-12">
     <h2>Cotizaciones</h2>
   </div>
-  <div class="col-lg-6 col-md-12 col-12 text-end">
-    <button routerLink="/cotizaciones/crear" mat-raised-button style="background-color: #36D699; color: white;" class="action-button">Nueva cotización</button>
+  <div class="col-lg-6 col-md-6 col-12 text-end">
+    <button routerLink="/cotizaciones/crear" mat-raised-button class="action-button btnNCotizacion">Nueva cotización</button>
   </div>
   <div class="col-12">
     <div class="table-responsive">
       <table class="table">
-        <thead class="table-dark">
+        <thead class="cabecera-azul">
           <tr>
             <th>Cliente</th>
             <th>Ruc</th>
@@ -25,10 +25,10 @@
             <td>{{ item.totalEquipos }}</td>
             <td>{{ item.estado }}</td>
             <td>
-              <a routerLink="/cotizaciones/cotizar/{{item.id}}" mat-raised-button color="primary" style="width: 100%;">Cotizar</a>
+              <button routerLink="/cotizaciones/cotizar/{{item.id}}" mat-raised-button class="btnCotizar">Cotizar</button>
             </td>
             <td>
-              <a routerLink="/cotizaciones/aprobar/{{item.id}}" mat-raised-button color="warn" style="width: 100%;">Aprobar</a>
+              <button routerLink="/cotizaciones/aprobar/{{item.id}}" mat-raised-button class="btnAprobar">Aprobar</button>
             </td>
           </tr>
         </tbody>

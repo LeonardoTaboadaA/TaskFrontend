@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { ClienteCreateComponent } from 'src/app/clientes/cliente-create/cliente-create.component';
+
 
 @Component({
   selector: 'app-cotizacion-create',
@@ -50,6 +50,8 @@ export class CotizacionCreateComponent implements OnInit{
 
   private _filter(value: string): any[] {
     const filterValue = value.toLowerCase();
+    console.log(filterValue)
+
     return this.options.filter(option =>
       option.ruc.toLowerCase().includes(filterValue) ||
       option.razonSocial.toLowerCase().includes(filterValue)
@@ -68,10 +70,7 @@ export class CotizacionCreateComponent implements OnInit{
 
   }
   nuevoCliente(){
-    this.dialog.open(ClienteCreateComponent, {
-      disableClose: true,
-      width: "auto"
-    })
+
   }
 
   onFileSelected(event: Event, tipo: 'principal' | 'secundaria') {

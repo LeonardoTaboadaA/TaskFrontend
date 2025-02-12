@@ -1,16 +1,35 @@
-mat-form-field{
+.btnAgreFila{
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  background-color: #36D699 !important;
+  color: white !important;
 }
 
-.action-button{
-  width: 100%;
-  margin-bottom: 15px;
+.cardEquipo{
+  background-color: #666F88 !important;
 }
-@media screen and (min-width: 992px) {
-  .action-button {
-    width: auto;
-    margin-right: 15px;
-    margin-bottom: 10px;
-  }
+
+::ng-deep .mffBlanco .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label{
+  color: #EFF1E6 !important;
+}
+
+::ng-deep .mffBlanco .mdc-text-field:not(.mdc-text-field-disabled) .mdc-floating-label{
+  color: #EFF1E6;
+}
+
+::ng-deep .mffBlanco .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+::ng-deep .mffBlanco .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+::ng-deep .mffBlanco .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{
+  border-color: #EFF1E6 !important;
+}
+
+::ng-deep .mffBlanco .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+::ng-deep .mffBlanco .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+::ng-deep .mffBlanco .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing{
+  border-color: #fff !important;
+  border-width: 1.9px !important;
+}
+
+::ng-deep .mffBlanco .mdc-text-field--outlined .mdc-text-field__input {
+  color: #fff !important;
 }

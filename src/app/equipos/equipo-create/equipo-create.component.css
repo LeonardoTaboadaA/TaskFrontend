@@ -1,0 +1,5 @@
+@media (max-width: 575px) {
+  .mdc-dialog__title{
+    padding: 0 10px;
+  }
+}

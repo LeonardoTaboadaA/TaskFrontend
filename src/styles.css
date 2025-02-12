@@ -1,4 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-
-/*html, body { height: 100%; }*/
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+mat-form-field{
+  width: 100%;
+}
+.action-button{
+  width: 100%;
+}
+.btnGuardar{
+  margin-bottom: 15px;
+  margin-right: 0;
+}
+.btnGuardar:enabled{
+  background-color: #020B53 !important;
+  color: white !important;
+}
+.btnCancelar{
+  color: #2A39A8 !important;
+}
+@media screen and (min-width: 992px) {
+  .action-button {
+    width: auto;
+  }
+  .btnGuardar{
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+}
