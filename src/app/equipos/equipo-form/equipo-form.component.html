@@ -1,3 +1,4 @@
+<h1 mat-dialog-title>Crear equipo</h1>
 <div mat-dialog-content style="padding: 10px;">
   <form [formGroup]="formCrearEquipo" (submit)="guardarEquipo()">
     <div class="container-fluid">
@@ -19,13 +20,54 @@
             <mat-error *ngIf="formCrearEquipo.invalid">{{obtenerErrorCampoModelo()}}</mat-error>
           </mat-form-field>
         </div>
-        <div class="col-12">
+        <div class="col-lg-6 col-md-12 col-12">
           <mat-form-field appearance="outline">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="nombreEquipo" autocomplete="off" type="tel" (keypress)="validarSoloLetras($event)">
             <mat-error *ngIf="formCrearEquipo.invalid">{{obtenerErrorCampoNombreEquipo()}}</mat-error>
           </mat-form-field>
         </div>
+
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Potencia (HP)</mat-label>
+            <input matInput formControlName="potencia" type="number">
+            <mat-error *ngIf="formCrearEquipo.invalid">{{obtenerErrorCampoPotencia()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Tensión (V)</mat-label>
+            <input matInput formControlName="tension" type="number">
+            <mat-error *ngIf="formCrearEquipo.invalid">{{obtenerErrorCampoTension()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Amperaje (A)</mat-label>
+            <input matInput formControlName="amperaje" type="number">
+            <mat-error *ngIf="formCrearEquipo.invalid">{{obtenerErrorCampoAmperaje()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Año de Fabricación</mat-label>
+            <input matInput formControlName="anioFabricacion" type="number">
+            <mat-error *ngIf="formCrearEquipo.invalid">{{obtenerErrorCampoAnioFabricacion()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Especialidad</mat-label>
+            <input matInput formControlName="especialidad" type="text">
+            <mat-error *ngIf="formCrearEquipo.invalid">{{obtenerErrorCampoEspecialidad()}}</mat-error>
+          </mat-form-field>
+        </div>
+
 
         <div class="col-12">
           <button mat-raised-button color="primary" class="action-button" [disabled]="formCrearEquipo.invalid">Guardar</button>
@@ -34,7 +76,6 @@
       </div>
     </div>
   </form>
-
 </div>
 
 

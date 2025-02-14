@@ -18,7 +18,7 @@ export class EquipoCreateComponent {
     private equipoService:EquipoService,
     public dialogoReferencia: MatDialogRef<EquipoCreateComponent>) {}
 
-  guardarCliente(equipoRequest : EquipoRequest){
+  guardarEquipo(equipoRequest : EquipoRequest){
     this.equipoService.crearEquipo(equipoRequest).subscribe(() => {
       this.dialogoReferencia.close();
     }, (error) => this.errores = parsearErroresAPI(error));

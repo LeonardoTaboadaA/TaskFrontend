@@ -1,0 +1,11 @@
+@media screen and (min-width: 768px) {
+  .action-button {
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .action-button {
+    width: auto;
+  }
+}

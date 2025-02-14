@@ -9,6 +9,8 @@ import { CotizacionCotizarComponent } from './cotizacion/cotizacion-cotizar/coti
 import { CotizacionAprobarComponent } from './cotizacion/cotizacion-aprobar/cotizacion-aprobar.component';
 import { ClienteCreateComponent } from './clientes/cliente-create/cliente-create.component';
 import { ClienteListComponent } from './clientes/cliente-list/cliente-list.component';
+import { VisitaListComponent } from './visitas/visita-list/visita-list.component';
+import { VisitaCreateComponent } from './visitas/visita-create/visita-create.component';
 
 const routes: Routes = [
   {
@@ -54,6 +56,16 @@ const routes: Routes = [
   {
     path:'usuarios/editar/:idUsuario',
     component:UsuarioEditComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'visitas',
+    component:VisitaListComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'visitas/crear',
+    component:VisitaCreateComponent,
     pathMatch:'full'
   },
   {

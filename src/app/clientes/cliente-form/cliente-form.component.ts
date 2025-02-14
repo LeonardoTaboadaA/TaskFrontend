@@ -13,16 +13,6 @@ export class ClienteFormComponent implements OnInit {
 
   formCrearCliente!: FormGroup;
 
-  filteredOptionsList: Observable<any[]>[] = [];
-  equipos = [
-    { idEquipo: 1, marca: 'HP', modelo: 'Pavilion', nombreEquipo: 'Equipo 1' },
-    { idEquipo: 2, marca: 'Dell', modelo: 'Inspiron', nombreEquipo: 'Equipo 2' },
-    { idEquipo: 3, marca: 'Lenovo', modelo: 'ThinkPad', nombreEquipo: 'Equipo 3' },
-    { idEquipo: 4, marca: 'Apple', modelo: 'MacBook Pro', nombreEquipo: 'Equipo 4' },
-    { idEquipo: 5, marca: 'Asus', modelo: 'ZenBook', nombreEquipo: 'Equipo 5' },
-  ];
-
-
   constructor(private fb: FormBuilder)
   {
 
@@ -33,28 +23,6 @@ export class ClienteFormComponent implements OnInit {
 
   @Output()
   onSubmit: EventEmitter<ClienteRequest> = new EventEmitter<ClienteRequest>();
-
-  guardarCliente() {
-    const formValue = this.formCrearCliente.value;
-
-    // Extraer solo los idEquipo de los objetos seleccionados en el array equipos
-    const idEquipos = formValue.equipos.map((equipo: any) => equipo.searchMaMoNom.idEquipo);
-
-    // Construir un nuevo objeto con la estructura correcta de ClienteRequest
-    const clienteRequest: ClienteRequest = {
-      ruc: formValue.ruc,
-      razonSocial: formValue.razonSocial,
-      numeroCelular: formValue.numeroCelular,
-      email: formValue.email,
-      direccion: formValue.direccion,
-      idEquipos: idEquipos
-    };
-
-    // Emitir solo los datos necesarios en el formato correcto
-    this.onSubmit.emit(clienteRequest);
-    console.log(clienteRequest);
-  }
-
 
   ngOnInit(): void {
     this.formCrearCliente = this.fb.group({
@@ -96,11 +64,34 @@ export class ClienteFormComponent implements OnInit {
           primeraLetraMayuscula()
         ]
       }],
-
-      equipos: this.fb.array([])
+      equipos: this.fb.array([]),
+      idEquipos: [[]]
     });
 
-    this.agregarEquipo();
+  }
+
+  actualizarEquipos(ids: number[]) {
+    console.log("Actualizando idEquipos en ClienteFormComponent:", ids);
+    this.formCrearCliente.patchValue({ idEquipos: ids });
+  }
+
+  guardarCliente() {
+    const formValue = this.formCrearCliente.value;
+
+
+    // Construir un nuevo objeto con la estructura correcta de ClienteRequest
+    const clienteRequest: ClienteRequest = {
+      ruc: formValue.ruc,
+      razonSocial: formValue.razonSocial,
+      numeroCelular: formValue.numeroCelular,
+      email: formValue.email,
+      direccion: formValue.direccion,
+      idEquipos: formValue.idEquipos
+    };
+
+    // Emitir solo los datos necesarios en el formato correcto
+    this.onSubmit.emit(clienteRequest);
+    console.log(clienteRequest);
   }
 
   obtenerErrorCampoRuc(){
@@ -174,74 +165,9 @@ export class ClienteFormComponent implements OnInit {
     return '';
   }
 
-  nuevoEquipo(){
-
-  }
-
-  private _filter(value: any): any[] {
-    if (!value) {
-      return this.equipos; // Si es nulo, devolver todos los equipos
-    }
-
-    // Verificar si value es un objeto y extraer el string si es necesario
-    const filterValue = typeof value === 'string'
-        ? value.toLowerCase()
-        : typeof value === 'object' && value.searchMaMoNom
-          ? value.searchMaMoNom.toLowerCase()
-          : '';
-
-    console.log("Valor filtrado:", filterValue);
-
-    return this.equipos.filter(option =>
-      option.marca.toLowerCase().includes(filterValue) ||
-      option.nombreEquipo.toLowerCase().includes(filterValue)
-    );
-  }
-
-  // Getter para acceder al FormArray de equipos
-  get equiposFormArray(): FormArray {
-    return this.formCrearCliente.get('equipos') as FormArray;
-  }
-
-  // Método para agregar una nueva fila de equipo
-  agregarEquipo() {
-    const equipoFormGroup = this.fb.group({
-      searchMaMoNom: [''],
-    });
-
-    this.equiposFormArray.push(equipoFormGroup);
-
-    const index = this.equiposFormArray.length - 1;
-    const control = equipoFormGroup.get('searchMaMoNom');
-
-    // Asigna el observable de opciones filtradas a la posición correspondiente
-    this.filteredOptionsList[index] = control!.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-  }
-
-
-
-  // Método para eliminar una fila de equipo
-  eliminarFila(index: number) {
-    this.equiposFormArray.removeAt(index);
-  }
-
-  // Método para obtener los IDs de los equipos seleccionados
-  obtenerIdEquipos(): number[] {
-    return this.equiposFormArray.controls
-      .map(control => control.value.searchMaMoNom?.idEquipo) // Extraer el idEquipo
-      .filter(id => id != null); // Filtrar valores nulos
-  }
-
   validarSoloNumeros(event: KeyboardEvent): boolean {
     const charCode = event.charCode;
     return charCode >= 48 && charCode <= 57;
-  }
-
-  displayFn(equipo: any): string {
-    return equipo && equipo.marca ? `${equipo.marca} - ${equipo.nombreEquipo}` : '';
   }
 
 }

@@ -30,6 +30,11 @@ import { EquipoCreateComponent } from './equipos/equipo-create/equipo-create.com
 import { EquipoListComponent } from './equipos/equipo-list/equipo-list.component';
 import { EquipoFormComponent } from './equipos/equipo-form/equipo-form.component';
 import { UsuarioFormComponent } from './usuarios/usuario-form/usuario-form.component';
+import { VisitaListComponent } from './visitas/visita-list/visita-list.component';
+import { VisitaCreateComponent } from './visitas/visita-create/visita-create.component';
+import { VisitaEditComponent } from './visitas/visita-edit/visita-edit.component';
+import { VisitaFormComponent } from './visitas/visita-form/visita-form.component';
+import { EquipoAssignComponent } from './equipos/equipo-assign/equipo-assign.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,12 @@ import { UsuarioFormComponent } from './usuarios/usuario-form/usuario-form.compo
     EquipoCreateComponent,
     EquipoListComponent,
     EquipoFormComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    VisitaListComponent,
+    VisitaCreateComponent,
+    VisitaEditComponent,
+    VisitaFormComponent,
+    EquipoAssignComponent
   ],
   imports: [
     BrowserModule,
