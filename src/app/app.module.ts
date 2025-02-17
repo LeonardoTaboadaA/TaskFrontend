@@ -35,6 +35,7 @@ import { VisitaCreateComponent } from './visitas/visita-create/visita-create.com
 import { VisitaEditComponent } from './visitas/visita-edit/visita-edit.component';
 import { VisitaFormComponent } from './visitas/visita-form/visita-form.component';
 import { EquipoAssignComponent } from './equipos/equipo-assign/equipo-assign.component';
+import { VisitaAtenderComponent } from './visitas/visita-atender/visita-atender.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { EquipoAssignComponent } from './equipos/equipo-assign/equipo-assign.com
     VisitaCreateComponent,
     VisitaEditComponent,
     VisitaFormComponent,
-    EquipoAssignComponent
+    EquipoAssignComponent,
+    VisitaAtenderComponent
   ],
   imports: [
     BrowserModule,

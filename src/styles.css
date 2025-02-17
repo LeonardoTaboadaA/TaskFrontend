@@ -1,4 +1,11 @@
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cabecera-azul tr th{
+  background-color: #2A39A8 !important;
+  color: white;
+}
+
+
 mat-form-field{
   width: 100%;
 }
@@ -16,6 +23,7 @@ mat-form-field{
 .btnCancelar{
   color: #2A39A8 !important;
 }
+
 @media screen and (min-width: 992px) {
   .action-button {
     width: auto;
@@ -23,5 +31,15 @@ mat-form-field{
   .btnGuardar{
     margin-right: 15px;
     margin-bottom: 0;
+  }
+}
+@media (max-width: 575px) {
+  .pagination{
+    display: inline;
+    text-align: center;
+  }
+  .btnNuevo{
+    margin-bottom: 15px;
+    width: 100%;
   }
 }

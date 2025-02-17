@@ -11,6 +11,7 @@ import { ClienteCreateComponent } from './clientes/cliente-create/cliente-create
 import { ClienteListComponent } from './clientes/cliente-list/cliente-list.component';
 import { VisitaListComponent } from './visitas/visita-list/visita-list.component';
 import { VisitaCreateComponent } from './visitas/visita-create/visita-create.component';
+import { VisitaAtenderComponent } from './visitas/visita-atender/visita-atender.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,11 @@ const routes: Routes = [
   {
     path:'visitas/crear',
     component:VisitaCreateComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'visitas/atender/:idAtencion',
+    component:VisitaAtenderComponent,
     pathMatch:'full'
   },
   {

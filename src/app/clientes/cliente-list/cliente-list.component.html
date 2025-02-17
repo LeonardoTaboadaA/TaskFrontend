@@ -1,2 +1,58 @@
-<button routerLink="/clientes/crear" mat-raised-button style="background-color: #36D699; color: white;" class="action-button">Nuevo cliente</button>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <h2>Clientes</h2>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-end">
+    <button routerLink="/clientes/crear" mat-raised-button class="btnNuevo">Nuevo cliente</button>
+  </div>
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="cabecera-azul">
+          <tr>
+            <th>Código Cliente</th>
+            <th>Tienda</th>
+            <th>RUC</th>
+            <th>Dirección</th>
+            <th>Equipo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of pagedItems">
+            <td>{{ cliente.codigo }}</td>
+            <td>{{ cliente.tienda }}</td>
+            <td>{{ cliente.ruc }}</td>
+            <td>{{ cliente.direccion }}</td>
+            <td>{{ cliente.equipo }}</td>
+            <td>
+              <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+            <td>
+              <button mat-icon-button color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="prevPage()"><label>Anterior</label></a>
+        </li>
+        <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+          <a class="page-link" (click)="goToPage(page)"><label>{{ page }}</label></a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a class="page-link" (click)="nextPage()"><label>Siguiente</label></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

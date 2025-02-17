@@ -1,7 +1,7 @@
 <div [formGroup]="parentForm">
   <div formArrayName="equipos">
     <div *ngFor="let equipo of equiposFormArray.controls; let i = index" [formGroupName]="i" class="col-12">
-      <mat-card class="cardEquipo" style="margin-bottom: 20px;">
+      <mat-card class="cardEquipo">
         <mat-card-content>
           <div class="row">
             <div class="col-lg-6 col-md-12 col-12">

@@ -1,0 +1,73 @@
+<form [formGroup]="formAtender">
+  <div class="row">
+    <div class="col-12">
+      <h1>Atención N° {{ idAtencion }}</h1>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <input class="form-control" type="text" placeholder="Metro" disabled>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <input class="form-control" type="text" placeholder="29/01/2025" disabled>
+    </div>
+
+    <div class="col-12">
+      <div class="row" formArrayName="equipos">
+        <div class="col-12" *ngFor="let equipoCtrl of equiposFormArray.controls; let i = index" [formGroupName]="i">
+          <mat-card class="cardAtencion" style="margin-bottom: 20px;">
+            <mat-card-content>
+              <div class="row">
+                <div class="col-lg-6 col-md-12 col-12">
+                  <mat-form-field appearance="outline" class="mffBlanco">
+                    <mat-label>Buscar por Marca o Nombre</mat-label>
+                    <input matInput formControlName="searchMaMoNom" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                      <mat-option *ngFor="let option of filteredOptionsList[i] | async" [value]="option">
+                        {{ option.marca }} - {{ option.nombreEquipo }}
+                      </mat-option>
+                    </mat-autocomplete>
+
+                    <mat-error *ngIf="equipoCtrl.get('searchMaMoNom')?.invalid && equipoCtrl.get('searchMaMoNom')?.touched">
+                      {{ obtenerErrorCampoEquipo(i) }}
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="mffBlanco">
+                    <mat-label>Cantidad</mat-label>
+                    <input matInput formControlName="cantidad" autocomplete="off" type="text" (keypress)="validarSoloNumeros($event)">
+                    <mat-error *ngIf="equipoCtrl.get('cantidad')?.invalid">
+                      {{ obtenerErrorCampoCantidad(i) }}
+                    </mat-error>
+
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12">
+                  <mat-form-field appearance="outline" class="mffBlanco">
+                    <mat-label>Diagnóstico</mat-label>
+                    <textarea matInput formControlName="diagnostico" rows="5" autocomplete="off"></textarea>
+                    <mat-error *ngIf="equipoCtrl.get('diagnostico')?.invalid">
+                      {{ obtenerErrorCampoDiagnostico(i) }}
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="button" (click)="eliminarFila(i)" mat-icon-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button type="button" (click)="nuevaAtencion()" mat-raised-button class="action-button btnNuevaAtencion">Nueva Atención</button>
+    </div>
+
+    <div class="col-12">
+      <button mat-raised-button color="primary" class="action-button btnGuardar" [disabled]="formAtender.invalid">Guardar</button>
+      <button routerLink="/visitas" mat-raised-button class="action-button btnCancelar">Cancelar</button>
+    </div>
+  </div>
+</form>

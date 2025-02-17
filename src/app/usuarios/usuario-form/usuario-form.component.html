@@ -1,110 +1,106 @@
 <form [formGroup]="formCrearUsuario" (submit)="guardarUsuario()">
-  <mat-card>
-    <mat-card-content>
-      <div class="row">
-        <div class="col-12">
-          <h1>Crear Usuario</h1>
-        </div>
-        <div class="col-12">
-          <app-mostrar-errores [errores]="errores"></app-mostrar-errores>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Dni</mat-label>
-            <input matInput formControlName="dni" autocomplete="off" type="text" (keypress)="validarSoloNumeros($event)">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoDni()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Nombres</mat-label>
-            <input matInput formControlName="nombre" autocomplete="off" type="text">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoNombre()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Apellido Paterno</mat-label>
-            <input matInput formControlName="apellidoPaterno" autocomplete="off" type="text">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoApellidoPaterno()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Apellido Materno</mat-label>
-            <input matInput formControlName="apellidoMaterno" autocomplete="off" type="text">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoApellidoMaterno()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Correo electrónico</mat-label>
-            <input matInput formControlName="email" autocomplete="off" type="email">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoEmail()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>N° Celular</mat-label>
-            <input matInput formControlName="numeroCelular" autocomplete="off" type="tel" (keypress)="validarSoloNumeros($event)">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoNumeroCelular()}}</mat-error>
-          </mat-form-field>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>Crear Usuario</h1>
+    </div>
+    <div class="col-12">
+      <app-mostrar-errores [errores]="errores"></app-mostrar-errores>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Dni</mat-label>
+        <input matInput formControlName="dni" autocomplete="off" type="text" (keypress)="validarSoloNumeros($event)">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoDni()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombres</mat-label>
+        <input matInput formControlName="nombre" autocomplete="off" type="text">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoNombre()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido Paterno</mat-label>
+        <input matInput formControlName="apellidoPaterno" autocomplete="off" type="text">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoApellidoPaterno()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido Materno</mat-label>
+        <input matInput formControlName="apellidoMaterno" autocomplete="off" type="text">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoApellidoMaterno()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput formControlName="email" autocomplete="off" type="email">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoEmail()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>N° Celular</mat-label>
+        <input matInput formControlName="numeroCelular" autocomplete="off" type="tel" (keypress)="validarSoloNumeros($event)">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoNumeroCelular()}}</mat-error>
+      </mat-form-field>
+    </div>
 
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Dirección</mat-label>
-            <input matInput formControlName="direccion" autocomplete="off" type="text">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoDireccion()}}</mat-error>
-          </mat-form-field>
-        </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Dirección</mat-label>
+        <input matInput formControlName="direccion" autocomplete="off" type="text">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoDireccion()}}</mat-error>
+      </mat-form-field>
+    </div>
 
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Cargo</mat-label>
-            <mat-select formControlName="cargo">
-              <mat-option *ngFor="let cargo of listaCargos" [value]="cargo">
-                {{ cargo }}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoCargo()}}</mat-error>
-          </mat-form-field>
-        </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <mat-select formControlName="cargo">
+          <mat-option *ngFor="let cargo of listaCargos" [value]="cargo">
+            {{ cargo }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoCargo()}}</mat-error>
+      </mat-form-field>
+    </div>
 
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Usuario</mat-label>
-            <input matInput formControlName="username" autocomplete="off" type="text">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoUsername()}}</mat-error>
-          </mat-form-field>
-        </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="username" autocomplete="off" type="text">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoUsername()}}</mat-error>
+      </mat-form-field>
+    </div>
 
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Contraseña</mat-label>
-            <input matInput formControlName="password" autocomplete="off" type="password">
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoPassword()}}</mat-error>
-          </mat-form-field>
-        </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" autocomplete="off" type="password">
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoPassword()}}</mat-error>
+      </mat-form-field>
+    </div>
 
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Rol</mat-label>
-            <mat-select formControlName="rol">
-              <mat-option *ngFor="let rol of listaRoles" [value]="rol">
-                {{ rol }}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoRol()}}</mat-error>
-          </mat-form-field>
-        </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="rol">
+          <mat-option *ngFor="let rol of listaRoles" [value]="rol">
+            {{ rol }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formCrearUsuario.invalid">{{obtenerErrorCampoRol()}}</mat-error>
+      </mat-form-field>
+    </div>
 
-        <div class="col-12">
-          <button mat-raised-button class="action-button btnGuardar" [disabled]="formCrearUsuario.invalid">Guardar</button>
-          <a routerLink="/usuarios" mat-raised-button class="action-button btnCancelar">Cancelar</a>
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+    <div class="col-12">
+      <button mat-raised-button class="action-button btnGuardar" [disabled]="formCrearUsuario.invalid">Guardar</button>
+      <a routerLink="/usuarios" mat-raised-button class="action-button btnCancelar">Cancelar</a>
+    </div>
+  </div>
 </form>
 

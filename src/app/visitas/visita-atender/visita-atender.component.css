@@ -1,12 +1,16 @@
-.btnAgreFila{
+.btnNuevaAtencion{
   width: 100%;
   margin-bottom: 20px;
   background-color: #36D699 !important;
   color: white !important;
 }
 
-.cardEquipo{
+.cardAtencion{
   background-color: #D1D7E6 !important;
+  margin-bottom: 20px;
+}
+
+.form-control{
   margin-bottom: 20px;
 }
 

@@ -1,3 +1,11 @@
+.btnAtender{
+  width: 100%;
+  background-color: #2A39A8 !important;
+  color: white !important;
+}
+.btnCheck{
+  color: #36D699 !important;
+}
 @media screen and (min-width: 768px) {
   .action-button {
     width: auto;

@@ -1,59 +1,55 @@
 <form [formGroup]="formCrearCliente" (submit)="guardarCliente()">
-  <mat-card>
-    <mat-card-content>
-      <div class="row">
-        <div class="col-12">
-          <h1>Crear Cliente</h1>
-        </div>
-        <div class="col-12">
-          <app-mostrar-errores [errores]="errores"></app-mostrar-errores>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Ruc</mat-label>
-            <input matInput formControlName="ruc" autocomplete="off" type="text" (keypress)="validarSoloNumeros($event)">
-            <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoRuc()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Razón Social</mat-label>
-            <input matInput formControlName="razonSocial" autocomplete="off" type="text">
-            <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoRazonSocial()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>N° Celular</mat-label>
-            <input matInput formControlName="numeroCelular" autocomplete="off" type="tel" (keypress)="validarSoloNumeros($event)">
-            <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoNumeroCelular()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Correo electrónico</mat-label>
-            <input matInput formControlName="email" autocomplete="off" type="email">
-            <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoEmail()}}</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-12">
-          <mat-form-field appearance="outline">
-            <mat-label>Dirección</mat-label>
-            <input matInput formControlName="direccion" autocomplete="off" type="text">
-            <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoDireccion()}}</mat-error>
-          </mat-form-field>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>Crear Cliente</h1>
+    </div>
+    <div class="col-12">
+      <app-mostrar-errores [errores]="errores"></app-mostrar-errores>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Ruc</mat-label>
+        <input matInput formControlName="ruc" autocomplete="off" type="text" (keypress)="validarSoloNumeros($event)">
+        <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoRuc()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Razón Social</mat-label>
+        <input matInput formControlName="razonSocial" autocomplete="off" type="text">
+        <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoRazonSocial()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>N° Celular</mat-label>
+        <input matInput formControlName="numeroCelular" autocomplete="off" type="tel" (keypress)="validarSoloNumeros($event)">
+        <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoNumeroCelular()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput formControlName="email" autocomplete="off" type="email">
+        <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoEmail()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field appearance="outline">
+        <mat-label>Dirección</mat-label>
+        <input matInput formControlName="direccion" autocomplete="off" type="text">
+        <mat-error *ngIf="formCrearCliente.invalid">{{obtenerErrorCampoDireccion()}}</mat-error>
+      </mat-form-field>
+    </div>
 
-        <app-equipo-assign
-        [parentForm]="formCrearCliente"
-        (equiposSeleccionados)="actualizarEquipos($event)"></app-equipo-assign>
+    <app-equipo-assign
+    [parentForm]="formCrearCliente"
+    (equiposSeleccionados)="actualizarEquipos($event)"></app-equipo-assign>
 
 
-        <div class="col-12">
-          <button mat-raised-button class="action-button btnGuardar" [disabled]="formCrearCliente.invalid">Guardar</button>
-          <a routerLink="/clientes" mat-raised-button class="action-button btnCancelar">Cancelar</a>
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+    <div class="col-12">
+      <button mat-raised-button class="action-button btnGuardar" [disabled]="formCrearCliente.invalid">Guardar</button>
+      <a routerLink="/clientes" mat-raised-button class="action-button btnCancelar">Cancelar</a>
+    </div>
+  </div>
 </form>

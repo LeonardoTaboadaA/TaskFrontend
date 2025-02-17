@@ -296,8 +296,7 @@ export class UsuarioFormComponent implements OnInit{
   }
 
   validarSoloNumeros(event: KeyboardEvent): boolean {
-    const charCode = event.charCode;
-    return charCode >= 48 && charCode <= 57;
+    return this.validacionService.validarSoloNumeros(event);
   }
 
   validarSoloLetras(event: KeyboardEvent): boolean {

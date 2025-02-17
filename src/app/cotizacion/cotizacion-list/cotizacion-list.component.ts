@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PaginationService } from 'src/app/utilidades/paginacion/pagination.service';
 
 @Component({
   selector: 'app-cotizacion-list',
@@ -20,66 +21,33 @@ export class CotizacionListComponent {
     { id: 10, cliente: 'Cliente 10', ruc: '01234567890', totalEquipos: 10, estado: 'Visitado' },
   ];
 
+  constructor(public paginationService: PaginationService) {}
 
-  // Variables para la paginación
-  currentPage = 1;
-  itemsPerPage = 5; // Número de elementos por página
-  pagedItems: any[] = [];
-  pages: number[] = [];
-
-  constructor(private router: Router)
-  {
-    this.calculatePages();
-    this.updatePagedItems();
+  get pagedItems() {
+    return this.paginationService.getPagedItems(this.cotizaciones);
   }
 
-  nuevaCotizacion(){
-    this.router.navigate(['cotizaciones/crear']);
+  get pages() {
+    return this.paginationService.calculatePages(this.cotizaciones);
   }
 
-
-
-  // Calcular el número total de páginas
-  get totalPages(): number {
-    return Math.ceil(this.cotizaciones.length / this.itemsPerPage);
+  get currentPage() {
+    return this.paginationService.currentPage;
   }
 
-  // Calcular las páginas disponibles
-  calculatePages() {
-    this.pages = [];
-    for (let i = 1; i <= this.totalPages; i++) {
-      this.pages.push(i);
-    }
+  get totalPages() {
+    return this.paginationService.getTotalPages(this.cotizaciones);
   }
 
-  // Actualizar los elementos de la página actual
-  updatePagedItems() {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.pagedItems = this.cotizaciones.slice(startIndex, endIndex);
-  }
-
-  // Ir a una página específica
   goToPage(page: number) {
-    if (page >= 1 && page <= this.totalPages) {
-      this.currentPage = page;
-      this.updatePagedItems();
-    }
+    this.paginationService.goToPage(page, this.cotizaciones);
   }
 
-  // Página anterior
   prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.updatePagedItems();
-    }
+    this.paginationService.prevPage(this.cotizaciones);
   }
 
-  // Página siguiente
   nextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-      this.updatePagedItems();
-    }
+    this.paginationService.nextPage(this.cotizaciones);
   }
 }

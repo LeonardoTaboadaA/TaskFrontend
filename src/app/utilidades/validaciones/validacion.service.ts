@@ -13,4 +13,9 @@ export class ValidacionService {
     const patron = /^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$/; // Solo letras y espacios
     return patron.test(tecla);
   }
+  validarSoloNumeros(event: KeyboardEvent): boolean {
+    const charCode = event.charCode;
+    return charCode >= 48 && charCode <= 57;
+  }
+
 }
